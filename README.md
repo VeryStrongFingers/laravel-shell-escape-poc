@@ -2,6 +2,10 @@
 
 Proof of Concept to prove Laravel package vendors can exploit the command scheduler to run self-scheduled arbitrary shell commands.
 
+Meaning the **host** can execute an arbitrary command in a child process shell, invoked by the Laravel scheduler.
+
+This package uses `head -n 1 /etc/passwd > /tmp/really-cool.log` for the example.
+
 Affecting all Laravel versions above 5.4 (Lumen is untested) when the scheduler `artisan schedule:run` is used.
 
 ### Installation
